@@ -22,7 +22,8 @@ Enemy.prototype.update = function(dt) {
     // when off canvas, reset position of enemy to move across again
     if (this.x > 550) {
         this.x = -100;
-        this.speed = 100 + Math.floor(Math.random() * 512);
+        this.speed =  100 + Math.floor(Math.random() * 512 );
+        
     }
 
     // Check for collision between player and enemies
@@ -89,6 +90,9 @@ Player.prototype.handleInput = function(keyPress) {
         case 'down':
             this.y += this.speed + 30;
             break;
+        case 'a':
+            this.sprite = 'images/char-cat-girl.png';            
+            break;
     }
 };
 
@@ -114,7 +118,8 @@ document.addEventListener('keyup', function(e) {
         37: 'left',
         38: 'up',
         39: 'right',
-        40: 'down'
+        40: 'down' ,
+        32: 'a'
     };
 
     player.handleInput(allowedKeys[e.keyCode]);
